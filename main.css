@@ -9,6 +9,10 @@ body{
     margin-top: -10px;
     margin-bottom: 50px;
 }
+.scoreboard{
+    align-self: flex-start;
+    border: 1px solid black;
+}
 .board{
     background-color: black;
     width: 600px;

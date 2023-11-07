@@ -1,5 +1,7 @@
 let boxElems = document.querySelectorAll('.box')
 let turnElem = document.querySelector('p')
+let scoreElems = document.querySelectorAll('.score')
+let score = [0, 0]
 let markers = ['X', 'O']
 let turn = 0
 let count = 0
@@ -38,6 +40,8 @@ boxElems.forEach((box)=>{
             count += 1
             if(checkWin(event.target.id, markers[turn])){
                 turnElem.innerText = `${markers[turn]} Won!!`
+                score[turn] += 1
+                scoreElems[turn].appendChild(document.createTextNode(score[turn]))
                 active = false
             }else if(count == 9){
                 turnElem.innerText = `Draw`
