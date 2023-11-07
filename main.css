@@ -13,6 +13,10 @@ body{
     align-self: flex-start;
     border: 1px solid black;
 }
+.new{
+    align-self: flex-end;
+    display: none;
+}
 .board{
     background-color: black;
     width: 600px;

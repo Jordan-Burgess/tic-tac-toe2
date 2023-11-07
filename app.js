@@ -1,6 +1,7 @@
 let boxElems = document.querySelectorAll('.box')
-let turnElem = document.querySelector('p')
+let turnElem = document.querySelector('.message')
 let scoreElems = document.querySelectorAll('.score')
+let newElem = document.querySelector('.new')
 let score = [0, 0]
 let markers = ['X', 'O']
 let turn = 0
@@ -41,7 +42,8 @@ boxElems.forEach((box)=>{
             if(checkWin(event.target.id, markers[turn])){
                 turnElem.innerText = `${markers[turn]} Won!!`
                 score[turn] += 1
-                scoreElems[turn].appendChild(document.createTextNode(score[turn]))
+                scoreElems[turn].innerText = `${markers[turn]} Wine: ${score[turn]}`
+                newElem.style.display = "block"
                 active = false
             }else if(count == 9){
                 turnElem.innerText = `Draw`
@@ -51,4 +53,15 @@ boxElems.forEach((box)=>{
             }
         }
     })
+})
+
+newElem.addEventListener('click', (event)=>{
+    boxElems.forEach((box)=>{
+        box.innerText = ""
+    })
+    newElem.style.display = "none"
+    active = true
+    turn = 0
+    count = 0
+    turnElem.innerText = `X's Turn`
 })
