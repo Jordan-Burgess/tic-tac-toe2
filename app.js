@@ -3,6 +3,7 @@ let turnElem = document.querySelector('p')
 let markers = ['X', 'O']
 let turn = 0
 let count = 0
+let active = true
 let winCombos = {
     zero: [[0, 1, 2], [0, 4, 8], [0, 3, 6]],
     one: [[0, 1, 2], [1, 4, 7]],
@@ -32,11 +33,12 @@ function checkWin(place, marker){
 
 boxElems.forEach((box)=>{
     box.addEventListener('click', (event)=>{
-        if(event.target.innerText == ""){
+        if(event.target.innerText == "" && active){
             event.target.innerText = markers[turn]
             count += 1
             if(checkWin(event.target.id, markers[turn])){
                 turnElem.innerText = `${markers[turn]} Won!!`
+                active = false
             }else if(count == 9){
                 turnElem.innerText = `Draw`
             }else{
