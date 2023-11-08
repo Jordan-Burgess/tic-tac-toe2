@@ -2,6 +2,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(24, 24, 24);
+    color: white;
 }
 .message{
     font-size: 20px;
@@ -11,14 +13,13 @@ body{
 }
 .scoreboard{
     align-self: flex-start;
-    border: 1px solid black;
 }
 .new{
     align-self: flex-end;
     display: none;
 }
 .board{
-    background-color: black;
+    background-color: white;
     width: 600px;
     height: 600px;
     display: grid;
@@ -27,7 +28,7 @@ body{
     gap: 8px;
 }
 .box{
-    background-color: white;
+    background-color: rgb(24, 24, 24);
     display: flex;
     align-items: center;
     justify-content: center;

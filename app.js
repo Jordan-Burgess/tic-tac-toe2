@@ -42,11 +42,12 @@ boxElems.forEach((box)=>{
             if(checkWin(event.target.id, markers[turn])){
                 turnElem.innerText = `${markers[turn]} Won!!`
                 score[turn] += 1
-                scoreElems[turn].innerText = `${markers[turn]} Wine: ${score[turn]}`
+                scoreElems[turn].innerText = `${markers[turn]} Wins: ${score[turn]}`
                 newElem.style.display = "block"
                 active = false
             }else if(count == 9){
                 turnElem.innerText = `Draw`
+                newElem.style.display = "block"
             }else{
                 turn = 1 - turn
                 turnElem.innerText = `${markers[turn]}'s Turn`
