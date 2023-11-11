@@ -4,7 +4,8 @@ const scoreElems = document.querySelectorAll('.score')
 const newElem = document.querySelector('.new')
 const score = [0, 0]
 const markers = ['X', 'O']
-let turn = 0
+let gameTurn = 0
+let turn = gameTurn
 let count = 0
 let active = true
 
@@ -45,6 +46,7 @@ const handleWin = function (){
 const handleDraw = function (){
     turnElem.innerText = `Draw`
     newElem.style.display = "block"
+    active = false
 }
 
 const resetGame = function (){
@@ -53,9 +55,10 @@ const resetGame = function (){
     })
     newElem.style.display = "none"
     active = true
-    turn = 0
+    gameTurn = 1 - gameTurn
+    turn = gameTurn
     count = 0
-    turnElem.innerText = `X's Turn`
+    turnElem.innerText = `${markers[turn]}'s Turn`
 }
 
 boxElems.forEach((box)=>{
