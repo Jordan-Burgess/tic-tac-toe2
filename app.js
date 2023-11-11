@@ -39,21 +39,21 @@ const handleWin = function (){
     turnElem.innerText = `${markers[turn]} Won!!`
     score[turn] += 1
     scoreElems[turn].innerText = `${markers[turn]} Wins: ${score[turn]}`
-    newElem.style.display = "block"
+    newElem.style.display = 'block'
     active = false
 }
 
 const handleDraw = function (){
-    turnElem.innerText = `Draw`
-    newElem.style.display = "block"
+    turnElem.innerText = 'Draw'
+    newElem.style.display = 'block'
     active = false
 }
 
 const resetGame = function (){
     boxElems.forEach((box)=>{
-        box.innerText = ""
+        box.innerText = ''
     })
-    newElem.style.display = "none"
+    newElem.style.display = 'none'
     active = true
     gameTurn = 1 - gameTurn
     turn = gameTurn
@@ -63,7 +63,7 @@ const resetGame = function (){
 
 boxElems.forEach((box)=>{
     box.addEventListener('click', (event)=>{
-        if(event.target.innerText == "" && active){
+        if(event.target.innerText == '' && active){
             event.target.innerText = markers[turn]
             count += 1
             if(count >= 5 && checkWin(event.target.id, markers[turn])){
