@@ -34,6 +34,19 @@ const checkWin = function (place, marker){
     return wins.includes(true)
 }
 
+const handleWin = function (){
+    turnElem.innerText = `${markers[turn]} Won!!`
+    score[turn] += 1
+    scoreElems[turn].innerText = `${markers[turn]} Wins: ${score[turn]}`
+    newElem.style.display = "block"
+    active = false
+}
+
+const handleDraw = function (){
+    turnElem.innerText = `Draw`
+    newElem.style.display = "block"
+}
+
 const resetGame = function (){
     boxElems.forEach((box)=>{
         box.innerText = ""
@@ -51,14 +64,9 @@ boxElems.forEach((box)=>{
             event.target.innerText = markers[turn]
             count += 1
             if(checkWin(event.target.id, markers[turn])){
-                turnElem.innerText = `${markers[turn]} Won!!`
-                score[turn] += 1
-                scoreElems[turn].innerText = `${markers[turn]} Wins: ${score[turn]}`
-                newElem.style.display = "block"
-                active = false
+                handleWin()
             }else if(count == 9){
-                turnElem.innerText = `Draw`
-                newElem.style.display = "block"
+                handleDraw()
             }else{
                 turn = 1 - turn
                 turnElem.innerText = `${markers[turn]}'s Turn`
