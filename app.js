@@ -66,7 +66,7 @@ boxElems.forEach((box)=>{
         if(event.target.innerText == "" && active){
             event.target.innerText = markers[turn]
             count += 1
-            if(checkWin(event.target.id, markers[turn])){
+            if(count >= 5 && checkWin(event.target.id, markers[turn])){
                 handleWin()
             }else if(count == 9){
                 handleDraw()
