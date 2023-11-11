@@ -34,6 +34,17 @@ const checkWin = function (place, marker){
     return wins.includes(true)
 }
 
+const resetGame = function (){
+    boxElems.forEach((box)=>{
+        box.innerText = ""
+    })
+    newElem.style.display = "none"
+    active = true
+    turn = 0
+    count = 0
+    turnElem.innerText = `X's Turn`
+}
+
 boxElems.forEach((box)=>{
     box.addEventListener('click', (event)=>{
         if(event.target.innerText == "" && active){
@@ -56,13 +67,4 @@ boxElems.forEach((box)=>{
     })
 })
 
-newElem.addEventListener('click', (event)=>{
-    boxElems.forEach((box)=>{
-        box.innerText = ""
-    })
-    newElem.style.display = "none"
-    active = true
-    turn = 0
-    count = 0
-    turnElem.innerText = `X's Turn`
-})
+newElem.addEventListener('click', resetGame)
